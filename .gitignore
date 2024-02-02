@@ -1,3 +1,9 @@
+# Andrews ignored items
+.idea
+.ipynb_checkpoint.?
+.DS_Store
+passwords.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
