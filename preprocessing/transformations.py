@@ -75,7 +75,7 @@ queries = {
                     total_purchased_amount,
                     CASE WHEN payment_method = 'Credit Card' THEN 1 ELSE 0 END as is_credit,
                     CASE WHEN payment_method = 'Crypto' THEN 1 ELSE 0 END as is_crypto,
-                    CASE WHEN payment_method = 'Paypal' THEN 1 ELSE 0 END as is_paypal,
+                    CASE WHEN payment_method = 'PayPal' THEN 1 ELSE 0 END as is_paypal,
                     CASE WHEN payment_method = 'Cash' THEN 1 ELSE 0 END as is_cash,
                     customer_age,
                     returned,
