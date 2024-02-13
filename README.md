@@ -1,8 +1,15 @@
 # Segmenting Customers based on E-Commerce Customer Data
 #### Andrew Cheng, Liam Odonovan, Gloria Gao, Jerry Yu
 -----
+![churn](https://raw.githubusercontent.com/anderoos/customer-segmentation/main/Images/readme_banner.png)
 
 ## Introduction
+Link to presentation: [Google Slides](https://docs.google.com/presentation/d/1nCEqAgGCB1ZGswAT7L4pUVOp281T8ia1ymjsokjlIcI/edit#slide=id.p)
+
+The phrase "The customer is always right!" by Harry Gordon Selfridge was coined over a century ago and is still relevant today. When operating a business, understanding your customer's behaviors and preferences is beneficial to many aspects of a business and is key to keeping a competitive edge. Understanding customer behaviors can improve business operations, improve marketing impact, and everything in between. Ultimately this can lead to a boost in sales, customer engagement and customer brand loyalty. Using ecommerce data retrived from [Kaggle](https://www.kaggle.com/datasets/ankitverma2010/ecommerce-customer-churn-analysis-and-prediction), the goal of this project is to uncover trends in business performance, analyze customer behaviors and leverage machine learning to predict future customer behavior based on metrics like churn and calculated low-valued customers.
+
+By understanding different customer segments and retention from their first purchases, we hope to use this insight to strategically allocate resources to drive customer engagement and build stronger relationships with our customer base. This can be accomplished in the form of personalized promotional offers, targetted/ geotargetted ad campaigns, and more.
+
 ## Data Review and Cleanup for Visualization
  - Categorize customers into age ranges.
  - Analyzing purchase behavior and categorizing customers into classes/types based on their purchase count.
@@ -22,7 +29,7 @@ Bronze customers representing 51.33% of purchases, targeting efforts towards thi
 The overall return rate across all categories is 6%. Clothing items have the highest return rate, while books have a slightly lower return rate than clothing items, but they remain relatively high. And electronics have the lowest return rate among the analyzed product categories.
 
 ## Approach
+We first used EDA to explore our dataset to uncover unusual/ interesting behaviors in this dataset. This allows us to identify areas of concern before using advanced analytical tools. We then attemped to use unsupervised machine learning methods PCA and KMeans clustering with pairplots to segment our customer base based on their spending habits. Unforunately, PCA proved unfruitful and didn't demonstrate strong clusters/ segments in our dataset. We then pivoted and used RFM analysis (Recency, Frequency, Monetary) to segment our custoemrs, which often is referred to as the gold standard of customer segmentation. RFM analyzes customer purchasing patterns and scores them based on RFM metrics. Using these metrics and churn, we employed Random Forest Classification supervised learning model to predict low-valued customer segments and churn based on their first purchases.
 
-## Figures
-
-## Conculsions
+## Conculsions and Limitations
+When attempting to predict the low-value customer segement and churn, we were able to achieve 77% and 85% respectively. Although the accuracy of these predictions are not as high as we would like, these scores suggest there is a relationship between these metrics and their first purchase. More data is likely required to achieve higher accuracy scores.
