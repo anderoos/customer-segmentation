@@ -31,5 +31,30 @@ The overall return rate across all categories is 6%. Clothing items have the hig
 ## Approach
 We first used EDA to explore our dataset to uncover unusual/ interesting behaviors in this dataset. This allows us to identify areas of concern before using advanced analytical tools. We then attemped to use unsupervised machine learning methods PCA and KMeans clustering with pairplots to segment our customer base based on their spending habits. Unforunately, PCA proved unfruitful and didn't demonstrate strong clusters/ segments in our dataset. We then pivoted and used RFM analysis (Recency, Frequency, Monetary) to segment our custoemrs, which often is referred to as the gold standard of customer segmentation. RFM analyzes customer purchasing patterns and scores them based on RFM metrics. Using these metrics and churn, we employed Random Forest Classification supervised learning model to predict low-valued customer segments and churn based on their first purchases.
 
+## RFM Analysis
+
+So, RFM Analysis is used to understand and segment customers based on their buying behavior. The term RFM stands for the three measurements that are taken to determine customer value to a business:
+
+    - Recency 
+    - Frequency 
+    - Monetary Value
+
+By leveraging RFM analysis, businesses can better predict aspects of customer behavior and strategically plan their marketing, sales, customer service and product development efforts.
+
+Before being able to obtain insights using RFM analysis we need to perform some feature engineering and add the columns for recency, frequency and monetary value. We assign scores from 5 to 1 to calculate recency, along with using 1 to 5 to calculate frequency and monetary value - recency is inverted, since for recency a more optimal score is a smaller date difference, while for frequency and monetary value a larger number is more optimal. To calculate RFM score, we add scores for recency, frequency and monetary value. We divide the RFM scores into three bins: low value medium value and high value. We can see that most customers fall into the “low value” bin for value segmentation, with a minority in the “mid value” bin and another substantial portion in the “high value” bin.
+
+To provide additional information, we can overlap RFM value segments with RFM customer segments. Value segments represent the categorization of customers based on their RFM scores into groups, whereas RFM value segments help us understand the relative value of customers in terms of recency, frequency and monetary aspects. By observing the distribution of RFM Values within the most optimal segment, we can see that a major contributor to the RFM Score is the recency of the purchase, rather than the frequency or monetary value.
+
+We can use a correlation matrix to understand the relationship between the three key customer metrics. The correlation matrix reveals how the metrics influence each other.
+
+    - Correlation Coefficient Range: The correlation coefficient between two variables ranges from -1 to +1. A value of +1 indicates a perfect positive correlation, meaning that as one variable increases, the other one also increases. A value of -1 indicates a perfect negative correlation, meaning that as one variable increases, the other decreases. A value of 0 indicates no correlation between the variables.
+    - Positive Correlation: If the correlation between two RFM metrics is positive, it means that higher values in one metric are associated with higher values in another. For example, a positive correlation between Frequency and Monetary value would suggest that customers who purchase more frequently tend to spend more.
+    - Negative Correlation: A negative correlation indicates that higher values in one metric are associated with lower values in another. For instance, a negative correlation between Recency and Frequency could suggest that customers who have not purchased recently tend to make purchases less frequently.
+    - We can see that very recent purchasers tend to not have made multiple purchases, recent purchasers also tend to make small purchases and that frequent purchasers tend to spend more. 
+
+Using our analysis, we can see that most customers fall into the “very good” bin for customer segmentation, while a small portion of the customers are in the bottom 40%. Lastly, we see that RFM scores are higher for those in better RFM customer segments, with a major contributor of the RFM score being recency.
+
+All in all, using RFM analysis we can see that a substantial contribution to the RFM score for our dataset is recency, and that a good RFM customer segmentation bin is closely related to a good RFM value segmentation bin.
+
 ## Conculsions and Limitations
 When attempting to predict the low-value customer segement and churn, we were able to achieve 77% and 85% respectively. Although the accuracy of these predictions are not as high as we would like, these scores suggest there is a relationship between these metrics and their first purchase. More data is likely required to achieve higher accuracy scores.
